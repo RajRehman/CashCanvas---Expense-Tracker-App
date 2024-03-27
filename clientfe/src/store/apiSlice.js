@@ -1,6 +1,6 @@
 import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react';
 
-const baseURI = 'https://secure-reaches-58010-009d965c3ff3.herokuapp.com/'; //before heroku: http://localhost:8080
+const baseURI = process.env.NODE_ENV === 'production' ? 'https://secure-reaches-58010-009d965c3ff3.herokuapp.com/' : 'http://localhost:8080'; // heroku:https://secure-reaches-58010-009d965c3ff3.herokuapp.com, now new part is : process.env.NODE_ENV === 'production' ? 'https://secure-reaches-58010-009d965c3ff3.herokuapp.com/' :
 
 export const apiSlice = createApi({
     baseQuery: fetchBaseQuery({baseUrl: baseURI}),
